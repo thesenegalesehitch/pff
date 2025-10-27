@@ -10,8 +10,8 @@ class ProfileSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Profile::truncate();
-        Profile::create(['nom' => 'Acheteur']);
-        Profile::create(['nom' => 'Producteur']);
-        Profile::create(['nom' => 'ProprietaireMateriel']);
+        Profile::firstOrCreate(['nom' => 'Acheteur']);
+        Profile::firstOrCreate(['nom' => 'Producteur']);
+        Profile::firstOrCreate(['nom' => 'ProprietaireMateriel']);
     }
 }

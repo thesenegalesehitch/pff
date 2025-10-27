@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class LouerMateriel extends Pivot
 {
     protected $table = 'louer_materiels';
-    protected $fillable = ['tarif', 'dateLocation', 'dateRetour', 'producteur_id', 'materiel_id'];
+    protected $fillable = ['tarif', 'dateLocation', 'dateRetour', 'producteur_id', 'materiel_id', 'status'];
 
     // Relations vers les entités
     public function producteur()

@@ -58,6 +58,7 @@ class MaterielController extends Controller
             'type_materiel_id' => $validatedData['type_materiel_id'],
             'status' => 'disponible',
             'photo' => $photoPath,
+            'proprietaire_materiel_id' => $proprietaire->id,
         ]);
 
         return redirect()->route('proprietaire.materiels.index')->with('success', 'Matériel ajouté avec succès !');
@@ -127,6 +128,7 @@ class MaterielController extends Controller
             'dateRetour' => $request->dateRetour,
             'producteur_id' => $producteur->id,
             'materiel_id' => $materiel->id,
+            'status' => 'en attente',
         ]);
 
         return redirect()->route('materiels.allouer')->with('success', 'Matériel loué avec succès !');

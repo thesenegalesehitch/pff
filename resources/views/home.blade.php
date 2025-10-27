@@ -74,6 +74,13 @@
                                     </a>
                                 </div>
                                 <div class="col-md-6 mb-3">
+                                    <a href="{{ route('materiels.allouer') }}" class="btn btn-lg btn-block btn-info w-100 shadow-sm">
+                                        <i class="fas fa-tools me-2"></i> Voir le Catalogue de Matériels
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
                                     <a href="{{ route('historique.achats') }}" class="btn btn-lg btn-block btn-secondary w-100 shadow-sm">
                                         <i class="fas fa-history me-2"></i> Mon Historique d'Achats
                                     </a>

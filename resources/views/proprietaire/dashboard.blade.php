@@ -58,6 +58,14 @@
                     </div>
                 </div>
                 <div class="col-md-3">
+                    <div class="card bg-secondary text-white">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $locationsActives }}</h5>
+                            <p class="card-text">Locations Actives</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
                     <div class="card bg-info text-white">
                         <div class="card-body">
                             <h5 class="card-title">{{ number_format($totalRevenus, 2) }} €</h5>

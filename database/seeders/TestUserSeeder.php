@@ -17,47 +17,56 @@ class TestUserSeeder extends Seeder
         $profiles = Profile::pluck('id', 'nom');
 
         // --- 1. Acheteur Simple ---
-        $compteAcheteur = Compte::create([
-            'login' => 'acheteur@agrilink.com',
+        $compteAcheteur = Compte::firstOrCreate([
+            'login' => 'acheteur@agrilink.com'
+        ], [
             'motPasse' => Hash::make('password'),
             'profile_id' => $profiles['Acheteur'],
         ]);
-        Acheteur::create([
+        Acheteur::firstOrCreate([
+            'compte_id' => $compteAcheteur->id
+        ], [
             'nom' => 'Diallo',
             'prenom' => 'Ibrahima',
             'email' => 'acheteur@agrilink.com',
-            'compte_id' => $compteAcheteur->id,
+            'numero' => '771234567',
             'adresse' => 'Dakar, Sénégal',
         ]);
 
         // --- 2. Producteur ---
-        $compteProducteur = Compte::create([
-            'login' => 'producteur@agrilink.com',
+        $compteProducteur = Compte::firstOrCreate([
+            'login' => 'producteur@agrilink.com'
+        ], [
             'motPasse' => Hash::make('password'),
             'profile_id' => $profiles['Producteur'],
         ]);
-        $acheteurProducteur = Acheteur::create([
+        $acheteurProducteur = Acheteur::firstOrCreate([
+            'compte_id' => $compteProducteur->id
+        ], [
             'nom' => 'Sow',
             'prenom' => 'Djibril',
             'email' => 'producteur@agrilink.com',
-            'compte_id' => $compteProducteur->id,
+            'numero' => '772345678',
             'adresse' => 'Thies, Sénégal',
         ]);
-        Producteur::create(['id' => $acheteurProducteur->id]);
+        Producteur::firstOrCreate(['id' => $acheteurProducteur->id]);
 
         // --- 3. Propriétaire Matériel ---
-        $compteProprietaire = Compte::create([
-            'login' => 'proprietaire@agrilink.com',
+        $compteProprietaire = Compte::firstOrCreate([
+            'login' => 'proprietaire@agrilink.com'
+        ], [
             'motPasse' => Hash::make('password'),
             'profile_id' => $profiles['ProprietaireMateriel'],
         ]);
-        $acheteurProprietaire = Acheteur::create([
+        $acheteurProprietaire = Acheteur::firstOrCreate([
+            'compte_id' => $compteProprietaire->id
+        ], [
             'nom' => 'Soumaré',
             'prenom' => 'Fatoumata Kamaté',
             'email' => 'proprietaire@agrilink.com',
-            'compte_id' => $compteProprietaire->id,
+            'numero' => '773456789',
             'adresse' => 'Diourbel, Sénégal',
         ]);
-        ProprietaireMateriel::create(['id' => $acheteurProprietaire->id]);
+        ProprietaireMateriel::firstOrCreate(['id' => $acheteurProprietaire->id]);
     }
 }

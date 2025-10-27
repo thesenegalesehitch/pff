@@ -64,7 +64,7 @@
                                 <a class="nav-link" href="{{ route('produits.catalogue') }}">Produits</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Matériels</a>
+                                <a class="nav-link" href="{{ route('materiels.allouer') }}">Matériels</a>
                             </li>
                         </ul>
 
@@ -88,10 +88,15 @@
                                     @if(Auth::user()->profile->nom === 'Producteur')
                                     <li><a class="dropdown-item" href="{{ route('producteur.dashboard') }}">Tableau de Bord</a></li>
                                     <li><a class="dropdown-item" href="{{ route('producteur.produits.index') }}">Gérer Produits</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('historique.locations') }}">Historique Locations</a></li>
                                     @endif
                                     @if(Auth::user()->profile->nom === 'ProprietaireMateriel')
                                     <li><a class="dropdown-item" href="{{ route('proprietaire.dashboard') }}">Tableau de Bord</a></li>
                                     <li><a class="dropdown-item" href="{{ route('proprietaire.materiels.index') }}">Gérer Matériels</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('proprietaire.locations.index') }}">Gérer Locations</a></li>
+                                    @endif
+                                    @if(Auth::user()->profile->nom === 'Acheteur')
+                                    <li><a class="dropdown-item" href="{{ route('historique.achats') }}">Historique Achats</a></li>
                                     @endif
                                     <li>
                                         <hr class="dropdown-divider">

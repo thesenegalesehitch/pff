@@ -25,7 +25,7 @@
             </div>
 
             <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                <p class="fw-bold mb-0 text-dark-green">Tarif à déterminer</p>
+                <p class="fw-bold mb-0 text-dark-green">{{ number_format($materiel->prixLocation, 2) }} €/jour</p>
 
                 @if(Auth::check() && Auth::user()->profile->nom === 'Producteur')
                 <button type="button" class="btn btn-agrilink btn-sm" data-bs-toggle="modal"

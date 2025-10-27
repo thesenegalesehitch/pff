@@ -13,13 +13,13 @@ class CategorieTypeMaterielSeeder extends Seeder
         // Catégories de Produits
         $categories = ['Fruits et Légumes', 'Céréales', 'Viandes et Volailles', 'Produits Laitiers'];
         foreach ($categories as $nom) {
-            Categorie::create(['nom' => $nom]);
+            Categorie::firstOrCreate(['nom' => $nom]);
         }
 
         // Types de Matériel
         $types = ['Tracteurs', 'Outils de Labour', 'Matériel de Récolte', 'Systèmes d\'Irrigation'];
         foreach ($types as $nom) {
-            TypeMateriel::create(['nom' => $nom]);
+            TypeMateriel::firstOrCreate(['nom' => $nom]);
         }
     }
 }

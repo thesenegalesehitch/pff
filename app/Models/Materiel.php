@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Materiel extends Model
 {
-    protected $fillable = ['nom', 'description', 'photo', 'type_materiel_id', 'proprietaire_materiel_id'];
+    protected $fillable = ['nom', 'description', 'photo', 'prixLocation', 'type_materiel_id', 'proprietaire_materiel_id', 'status'];
 
     public function type()
     {

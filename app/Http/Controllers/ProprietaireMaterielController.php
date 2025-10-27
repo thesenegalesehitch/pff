@@ -20,6 +20,9 @@ class ProprietaireMaterielController extends Controller
         $demandesEnAttente = LouerMateriel::whereHas('materiel', function($query) use ($proprietaire) {
             $query->where('proprietaire_materiel_id', $proprietaire->id);
         })->where('status', 'en attente')->count();
+        $locationsActives = LouerMateriel::whereHas('materiel', function($query) use ($proprietaire) {
+            $query->where('proprietaire_materiel_id', $proprietaire->id);
+        })->where('status', 'acceptée')->count();
         $totalRevenus = LouerMateriel::whereHas('materiel', function($query) use ($proprietaire) {
             $query->where('proprietaire_materiel_id', $proprietaire->id);
         })->where('status', 'acceptée')->sum('tarif');
